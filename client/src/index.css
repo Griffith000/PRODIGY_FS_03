@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input {
+    @apply w-full bg-slate-100 mb-4 p-2 rounded outline-none;
+  }
+}
+@utilities{
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .cursor-blink {
+    @apply inline-block; /* Example of using @apply for consistency */
+    animation: blink 1s step-start 0s infinite;
+  }
+}
