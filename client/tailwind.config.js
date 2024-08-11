@@ -19,7 +19,10 @@ export default {
               "backgroundPosition": "-200% 0"
             }
           }
-        }
+        },
+        fontFamily: {
+          'playfair': ['Playfair Display', 'serif'],
+        },
       
     },
   },

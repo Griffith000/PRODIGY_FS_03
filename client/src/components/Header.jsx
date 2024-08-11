@@ -11,7 +11,7 @@ const Header = () => {
     <div className="fixed top-0 left-0 right-0 z-50 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] animate-background-shine text-gray-400 text-xl p-4 shadow-lg">
       <div className="flex justify-between items-center py-3 max-w-7xl mx-auto">
         <Link to="/">
-          <div className="font-bold">ElectroFashion Hub</div>
+          <div className="font-thin">Fashion Hub</div>
         </Link>
         <ul className="flex gap-5">
           <Link to="/">

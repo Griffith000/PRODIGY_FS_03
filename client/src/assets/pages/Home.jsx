@@ -53,7 +53,7 @@ const Home = () => {
       {" "}
       <div className="flex flex-col min-h-screen">
         {/* Hero section */}
-        <div className="flex flex-col w-full p-6 flex-grow h-[1000px]">
+        <div className="flex flex-col w-full p-6 flex-grow ">
           <section className="px-3 py-5 bg-neutral-100 bg-opacity-70 lg:py-10">
             <div className="grid lg:grid-cols-2 items-center justify-items-center gap-5">
               <div className="order-2 lg:order-1 flex flex-col justify-center items-center">

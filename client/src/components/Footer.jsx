@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full p-6 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] animate-background-shine text-gray-400 text-center">
       <p className="text-lg m-1">
-        © 2024 ElectroFashion Hub. All rights reserved.
+        © 2024 Fashion Hub. All rights reserved.
       </p>
       <p className="text-sm flex justify-center items-center space-x-4">
         <span>Follow us on</span>
