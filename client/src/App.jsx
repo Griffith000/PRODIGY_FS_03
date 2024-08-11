@@ -13,13 +13,13 @@ import Footer from "./components/Footer";
 import SuccessPayment from "./assets/pages/SuccessPayment";
 import CancelPayment from "./assets/pages/CancelPayment";
 
+
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <div className="pt-24 ">
         {" "}
-        {/* Add padding to the top */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -34,7 +34,7 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };

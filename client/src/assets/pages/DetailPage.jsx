@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { FaStar } from "react-icons/fa";
-
+import {
+  addToCartStart,
+  addToCartSuccess,
+  addToCartFail,
+} from "../../redux/cart/cartSlice";
+import { useDispatch } from "react-redux";
 const DetailPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [reviews, setReviews] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
@@ -34,6 +39,16 @@ const DetailPage = () => {
     if (newReview) {
       setReviews([...reviews, newReview]);
       reviewInput.value = "";
+    }
+  };
+  const handleAddToCart = () => {
+    dispatch(addToCartStart());
+    try {
+      dispatch(addToCartSuccess(product));
+      success();
+    } catch (err) {
+      dispatch(addToCartFail(err));
+      error();
     }
   };
 
@@ -90,7 +105,10 @@ const DetailPage = () => {
                 </select>
               </div>
               <div className="mt-4">
-                <button className="inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-t from-[#8678f9] from-0% to-[#c7d2fe] px-6 font-medium text-gray-950 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 ">
+                <button
+                  onClick={handleAddToCart}
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-t from-[#8678f9] from-0% to-[#c7d2fe] px-6 font-medium text-gray-950 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 "
+                >
                   Add to cart
                 </button>
               </div>

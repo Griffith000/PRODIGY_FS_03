@@ -11,9 +11,13 @@ const useProducts = (selectedCategory) => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const url = selectedCategory ? `https://fakestoreapi.com/products/category/${selectedCategory}` : 'https://fakestoreapi.com/products';
+        const url = selectedCategory
+          ? `https://fakestoreapi.com/products/category/${selectedCategory}`
+          : "https://fakestoreapi.com/products";
         const response = await axios.get(url);
-        const filteredProducts = response.data.filter(product => product.category !== 'electronics');
+        const filteredProducts = response.data.filter(
+          (product) => product.category !== "electronics"
+        );
         setProducts(filteredProducts);
       } catch (err) {
         setError(err);

@@ -8,6 +8,7 @@ import {
 } from "../../redux/user/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../../components/OAuth.jsx";
+import { signInValide, signInError } from "../../main.jsx";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
@@ -34,9 +35,11 @@ const SignIn = () => {
         return;
       }
       dispatch(signInSuccess(data));
+      signInValide();
       navigate("/");
     } catch (error) {
       dispatch(signInFail(error));
+      signInError();
     }
   };
   return (
