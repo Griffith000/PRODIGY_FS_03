@@ -186,7 +186,7 @@ const Profile = () => {
         />
         <button
           type="submit"
-          className="bg-slate-600 text-white rounded p-2 self-center w-full uppercase"
+          className="animate-background-shine border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 m-2 rounded p-2 self-center w-full "
         >
           {loading ? "Loading..." : "Update"}
         </button>

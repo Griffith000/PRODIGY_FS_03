@@ -90,8 +90,8 @@ const DetailPage = () => {
                 </select>
               </div>
               <div className="mt-4">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-                  Add to Cart
+                <button className="inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-t from-[#8678f9] from-0% to-[#c7d2fe] px-6 font-medium text-gray-950 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 ">
+                  Add to cart
                 </button>
               </div>
             </div>
@@ -112,11 +112,12 @@ const DetailPage = () => {
                 placeholder="Write a review..."
                 className="border border-gray-300 rounded-md p-2 w-full"
               />
+
               <button
                 onClick={handleAddReview}
-                className="bg-blue-600 text-white px-2 py-2 rounded-md hover:bg-blue-700 mt-2"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-t from-[#8678f9] from-0% to-[#c7d2fe] px-6 font-medium text-gray-950 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 "
               >
-                Add Review
+                Add review
               </button>
             </div>
           </div>

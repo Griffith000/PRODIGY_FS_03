@@ -8,9 +8,11 @@ import {
   decrementQuantity,
 } from "../../redux/cart/cartSlice";
 import { FaCheckCircle } from "react-icons/fa";
+import {loadStripe} from '@stripe/stripe-js';
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart.items);
+  console.log(cart);
   const dispatch = useDispatch();
   const [showValidation, setShowValidation] = useState(false);
 
@@ -42,9 +44,31 @@ const Checkout = () => {
     const tax = subtotal * 0.1; // Example tax rate of 10%
     return (subtotal + shippingFee + tax).toFixed(2);
   };
+  const handlePayment = async() => {
+    const stripe = await loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+    const body = {
+      products : cart
+    }
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    const response = await fetch(`/api/user/create-checkout-session`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body)
+    })
+    const session = await response.json();
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    });
+    if(result.error) {
+      console.error(result.error.message);
+    } 
+  }
+
 
   return (
-    <div className="flex flex-col md:flex-row p-6">
+    <div className="flex flex-col md:flex-row p-6 h-screen">
       <div className="w-full md:w-2/3 p-4">
         <h2 className=" font-bold mb-4">
           {" "}
@@ -128,10 +152,8 @@ const Checkout = () => {
           </p>
           <hr className="m-2 " />
           <p className="text-lg font-semibold">Total: ${calculateTotal()}</p>
-          {/* <button className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 m-2'>
-      Proceed with payment
-    </button> */}
-          <button className="transition-background inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-r from-gray-100 via-[#c7d2fe] to-[#8678f9] bg-[length:200%_200%] bg-[0%_0%] px-6 font-medium text-gray-950 duration-500 hover:bg-[100%_200%] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50  m-4">
+
+          <button onClick={handlePayment} className="transition-background inline-flex h-12 items-center justify-center rounded-md border border-gray-800 bg-gradient-to-r from-gray-100 via-[#c7d2fe] to-[#8678f9] bg-[length:200%_200%] bg-[0%_0%] px-6 font-medium text-gray-950 duration-500 hover:bg-[100%_200%] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50  m-4">
             Proceed with payment
           </button>
         </div>

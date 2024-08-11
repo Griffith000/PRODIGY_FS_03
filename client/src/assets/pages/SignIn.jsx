@@ -40,7 +40,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div>
+    <div className="h-screen">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center items-center max-w-md mx-auto my-auto "
@@ -63,7 +63,7 @@ const SignIn = () => {
         />
         <button
           disabled={loading}
-          className=" w-full bg-slate-600 hover:bg-slate-500 text-white uppercase mb-4 py-3 px-8 rounded hover:transition duration-100 disabled:opacity-80"
+          className=" w-full animate-background-shine border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 m-2 mb-4 py-3 rounded hover:transition duration-100 disabled:opacity-80"
         >
           {loading ? "Loading..." : "Sign In"}
         </button>
