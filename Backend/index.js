@@ -8,6 +8,7 @@ const customError = require("./utils/error");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const history = require("connect-history-api-fallback");
 dotenv.config();
 const app = express();
 
@@ -19,19 +20,20 @@ mongoose
   .catch((err) => {
     console.log("Failed to connect to MongoDB", err);
   });
-const directoryName = path.resolve();
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
 
 app.use(cors());
-app.use(express.static(path.join(directoryName, "client/dist")));
-//production mode for later
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-// });
+
 app.use(express.json());
 app.use(cookieParser());
+// Use the history API fallback middleware
+app.use(history());
+
+// Serve static files from the frontend build directory
+const directoryName = path.resolve();
+app.use(express.static(path.join(directoryName, "client", "dist")));
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 

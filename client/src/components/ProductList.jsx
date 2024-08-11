@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProductsList = ({ products, searchQuery, handleAddToCart }) => {
+const ProductsList = React.memo(({ products, searchQuery, handleAddToCart }) => {
   const navigate = useNavigate();
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -15,11 +15,13 @@ const ProductsList = ({ products, searchQuery, handleAddToCart }) => {
           className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden w-72 transform transition-transform hover:scale-105 flex flex-col"
           onClick={() => navigate(`/product/${product.id}`)}
         >
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full h-48 object-cover"
-          />
+          <div className="flex justify-center items-center p-4">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-48 object-contain"
+            />
+          </div>
           <div className="p-4 flex flex-col flex-grow">
             <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
             <div className="mt-auto">
@@ -42,6 +44,6 @@ const ProductsList = ({ products, searchQuery, handleAddToCart }) => {
       ))}
     </div>
   );
-};
+});
 
 export default ProductsList;
