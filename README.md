@@ -4,13 +4,13 @@ This project is a local e-commerce platform built with a React frontend and a No
 
 ## Features
 
-- **User Authentication:**: Secure login and registration using JWT to ensure user data privacy and integrity.
-- **Product Management:**: Add, update, and delete product records in the cart.
-- **Payment Integration:**: Seamless payment processing using Stripe, ensuring secure and efficient transactions.
-- **State Management:**:Leveraging Redux for efficient state management, providing a smooth and responsive user experience.
-- **Firebase Integration:**: Utilizing Firebase for storage and authentication, ensuring reliable and scalable backend services.
-- **Sorting and Filtering:**: Users can sort and filter products via categories, making it easy to find exactly what they need.
-- **Real-Time Updates:**: Users can sort and filter products via categories, making it easy to find exactly what they need.
+- **User Authentication**: Secure login and registration using JWT to ensure user data privacy and integrity.
+- **Product Management**: Add, update, and delete product records in the cart.
+- **Payment Integration**: Seamless payment processing using Stripe, ensuring secure and efficient transactions.
+- **State Management**: Leveraging Redux for efficient state management, providing a smooth and responsive user experience.
+- **Firebase Integration**: Utilizing Firebase for storage and authentication, ensuring reliable and scalable backend services.
+- **Sorting and Filtering**: Users can sort and filter products via categories, making it easy to find exactly what they need.
+- **Real-Time Updates**: Users can sort and filter products via categories, making it easy to find exactly what they need.
   
 ## Tech Stack
 
@@ -40,7 +40,3 @@ To configure the environment variables for the project, follow these steps:
 `DATABASE_URL`
 `JWT_SECRET`
 `STRIPE_SECRET_KEY`
-
-
-
-
