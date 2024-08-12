@@ -1,6 +1,6 @@
 # Loacal E-commerce platform
 
-TThis project is a local e-commerce platform built with a React frontend and a Node.js backend using Express and MongoDB. The system allows for managing product data, user authentication, and secure payment processing.
+This project is a local e-commerce platform built with a React frontend and a Node.js backend using Express and MongoDB. The system allows for managing product data, user authentication, and secure payment processing.
 
 ## Features
 
