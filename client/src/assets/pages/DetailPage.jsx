@@ -8,6 +8,7 @@ import {
   addToCartFail,
 } from "../../redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import { addSuccess , addError } from "../../main";
 const DetailPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -45,9 +46,10 @@ const DetailPage = () => {
     dispatch(addToCartStart());
     try {
       dispatch(addToCartSuccess(product));
-      success();
+      addSuccess();
     } catch (err) {
       dispatch(addToCartFail(err));
+      addError();
       error();
     }
   };
